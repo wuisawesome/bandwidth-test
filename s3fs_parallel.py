@@ -17,7 +17,12 @@ def download(path):
 
 start = clock()
 ids = [download.remote(path) for path in files]
-ray.get(ids)
+results = ray.get(ids)
+for data in results:
+    x = 0
+    for byte in data:
+        x ^= byte
+    print(".", end="", flush=True)
 end = clock()
 
 print("Total download time: ", (end - start))

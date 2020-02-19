@@ -19,6 +19,11 @@ def download(path):
 start = clock()
 iter = iter.from_iterators(files).for_each(download)
 results = iter.gather_sync()
+for data in results:
+    x = 0
+    for byte in data:
+        x ^= byte
+    print(".", end="", flush=True)
 end = clock()
 
 print("Total download time: ", (end - start))
