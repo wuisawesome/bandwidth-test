@@ -1,5 +1,6 @@
 import ray
 import s3fs
+from time import perf_counter as clock
 
 ray.init()
 fs = s3fs.S3FileSystem(anon=False)
