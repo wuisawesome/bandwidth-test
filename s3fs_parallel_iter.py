@@ -11,9 +11,7 @@ files = fs.ls("anyscale-data/bandwidth-benchmark")[:1000]
 @ray.remote
 def download(path):
     data = fs.open(path, 'rb').read()
-    x = 0
-    for byte in data:
-        x ^= byte
+    return data
 
 
 start = clock()
