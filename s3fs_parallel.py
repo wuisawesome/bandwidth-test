@@ -18,6 +18,9 @@ ids = [download.remote(path) for path in files]
 results = ray.get(ids)
 for data in results:
     x = 0
+    if not data:
+        print("f", end="", flush=True)
+        continue
     for byte in data:
         x ^= byte
     print(".", end="", flush=True)
