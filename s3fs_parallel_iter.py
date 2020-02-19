@@ -17,7 +17,7 @@ def download(path):
 
 
 start = clock()
-iter = iter.from_iterators(files).foreach(download)
+iter = iter.from_iterators(files).for_each(download)
 results = iter.gather_sync()
 end = clock()
 
