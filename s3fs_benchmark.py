@@ -3,7 +3,7 @@ from time import perf_counter as clock
 
 fs = s3fs.S3FileSystem(anon=False)
 
-files = fs.ls("anyscale-data/bandwidth-benchmark")[:1000]
+files = sorted(fs.ls("anyscale-data/bandwidth-benchmark"))[:1000]
 
 start = clock()
 results = []
